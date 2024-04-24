@@ -17,7 +17,7 @@ $(document).ready(()=>{
             row.append($('<td>').text(module.name));
             row.append($('<td>').text(module.description));
             row.append($('<td>').text(module.speed));
-            row.append($('<td>').text(module.temperature + ' C°'));
+            row.append($('<td>').text(module.temperature + ' °C'));
 
 
             // ajout d'une classe CSS en fonction de la valeur de l'etat
