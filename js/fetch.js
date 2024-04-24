@@ -10,13 +10,24 @@ $(document).ready(()=>{
         console.log('modules from db:',modules);
         modules.forEach(module => {
             let row = $("<tr>");
+            let stateCell = $("<td>").text(module.state);
+
             row.append($('<td>').text(module.id));
             row.append($('<td>').text(formatDate(module.date)));
             row.append($('<td>').text(module.name));
             row.append($('<td>').text(module.description));
             row.append($('<td>').text(module.speed));
             row.append($('<td>').text(module.temperature + ' C°'));
-            row.append($('<td>').text(module.state));
+
+
+            // ajout d'une classe CSS en fonction de la valeur de l'etat
+            if (module.state === 'En marche') {
+                stateCell.addClass('on');
+            } else if (module.state === 'En panne') {
+                stateCell.addClass('off');
+            }
+            row.append(stateCell);
+
             $('#modules-table tbody').append(row);
         });
     }

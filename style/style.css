@@ -1,0 +1,11 @@
+.on, .off {
+    font-weight: bold;
+}
+
+.on {
+    color: rgb(5, 233, 5) !important;
+}
+
+.off {
+    color: rgb(255, 0, 0) !important;
+}
