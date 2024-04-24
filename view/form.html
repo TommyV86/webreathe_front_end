@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulaire module</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
           rel="stylesheet" 
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
           crossorigin="anonymous">
-    <title>formulaire module</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="../js/addModule.js"></script>
 </head>
 <body>
     
     <h2>ajouter un module</h2>
     <button><a href="index.html">retour à l'index</a></button>
-    <form action="" method="post">
-        
+
+    <form id="add-module-form">
+        <input type="text" name="name" placeholder="Nom du module" required>
+        <input type="text" name="description" placeholder="Description du module" required>
+        <button type="submit">Ajouter le module</button>
     </form>
 
 </body>

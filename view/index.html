@@ -10,7 +10,9 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
           crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../fetch.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="../js/fetch.js"></script>
 </head>
 
 <body>
@@ -28,41 +30,29 @@
                 <th scope="col">n° du module</th>
                 <th scope="col">date de création</th>
                 <th scope="col">nom du module</th>
-                <th scope="col">description</th>
+                <th scope="col">description</th> 
+                <th scope="col">vitesse</th>
+                <th scope="col">température</th>
                 <th scope="col">état</th>
             </tr>
         </thead>
 
-        <tbody>
-            <tr>
-                <td>5</td>
-                <td>02 02 2022</td>
-                <td>mod 1</td>
-                <td>description mod 1</td>
-                <td>en ligne</td>
-            </tr>
-        </tbody>
+        <tbody></tbody>
     </table>
 
 
     <!-- afficher les historiques-->
-    <h2>Historiques</h2>
-    <table class="table">
+    <h2>Historique des pannes</h2>
+    <table id="histories-table" class="table">
         <thead>
             <tr>
                 <th scope="col">n° de l'historique</th>
-                <th scope="col">date de panne</th>
+                <th scope="col">date de la panne</th>
                 <th scope="col">module</th>
             </tr>
         </thead>
 
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>02 02 2022</td>
-                <td>mod 1</td>
-            </tr>
-        </tbody>
+        <tbody></tbody>
     </table>
     
 </body>
