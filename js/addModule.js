@@ -17,7 +17,7 @@ $(document).ready(() => {
             data: JSON.stringify(formData),
             success: (response) => {
                 console.log('Module ajouté avec succès:', response);
-                window.location.assign('index.html')
+                window.location.assign('../index.html');
             },
             error: (error) => {
                 // Gérer les erreurs en cas d'échec de la requête AJAX
