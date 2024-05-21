@@ -42,6 +42,8 @@ $(document).ready(()=>{
             row.append($('<td>').text(history.id));
             row.append($('<td>').text(formatDate(history.date)));
             row.append($('<td>').text(history.module.name));
+            row.append($('<td>').text(history.speedModule));
+            row.append($('<td>').text(history.temperatureModule + ' °C'));
             $('#histories-table tbody').append(row);
         });
     };
