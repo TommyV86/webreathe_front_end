@@ -1,6 +1,7 @@
 $(document).ready(()=>{
 
     let isFetch = false;
+    const localhost = 'https://localhost:8000/';
 
     // --------------------FONCTIONS------------------------------//
 
@@ -11,6 +12,8 @@ $(document).ready(()=>{
         modules.forEach(module => {
             let row = $("<tr>");
             let stateCell = $("<td>").text(module.state);
+            // lien de redirection avec l'ID du module
+            let link = $('<a>').attr('href', '../webreathe_front_end/view/histories-module.html?moduleId=' + module.id).text('voir tout l\'historique');
 
             row.append($('<td>').text(module.id));
             row.append($('<td>').text(formatDate(module.date)));
@@ -18,6 +21,7 @@ $(document).ready(()=>{
             row.append($('<td>').text(module.description));
             row.append($('<td>').text(module.speed));
             row.append($('<td>').text(module.temperature + ' °C'));
+            row.append($('<td>').append(link));
 
 
             // ajout d'une classe CSS en fonction de la valeur de l'etat
@@ -58,7 +62,7 @@ $(document).ready(()=>{
     // requêtes ajax en bdd
     function fetchData() {
         $.ajax({
-            url: 'https://localhost:8000/module/get_all',
+            url: localhost + 'module/get_all',
             method: 'GET',
             success: (resp)=>{
                 initModulesTable(resp);
@@ -66,7 +70,7 @@ $(document).ready(()=>{
         });
 
         $.ajax({
-            url: 'https://localhost:8000/history/get_all',
+            url: localhost + 'history/get_all',
             method: 'GET',
             success: (resp)=>{
                 initHistoryTable(resp);
