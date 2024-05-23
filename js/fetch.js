@@ -2,13 +2,58 @@ $(document).ready(()=>{
 
     let isFetch = false;
     const localhost = 'https://localhost:8000/';
+    let myChart = null;
 
     // --------------------FONCTIONS------------------------------//
+
+    // fonction d'initialisation du graphique avec Chart.js
+    function initChart(labels, speeds, temperatures) {
+
+        // rafraîchissement du graphique ou initialisation si nécessaire
+        if (myChart) {
+            // si le graphique existe déjà, le détruire avant d'en créer un nouveau
+            myChart.destroy();
+        }
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        myChart = new Chart(ctx, {
+            type: 'bar', // utiliser 'bar', 'line', etc. selon besoins
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Vitesse',
+                    data: speeds,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Température (°C)',
+                    data: temperatures,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
 
     // fonction d'initialisation de modules récupérés en bdd
     function initModulesTable(modules){
         $('#modules-table tbody').empty();
         console.log('modules from db:',modules);
+
+        let labels = [];
+        let speeds = [];
+        let temperatures = [];
+
         modules.forEach(module => {
             let row = $("<tr>");
             let stateCell = $("<td>").text(module.state);
@@ -33,7 +78,15 @@ $(document).ready(()=>{
             row.append(stateCell);
 
             $('#modules-table tbody').append(row);
+
+            // ajout des données pour le graphique
+            labels.push(module.name);
+            speeds.push(module.speed);
+            temperatures.push(module.temperature);
         });
+
+        // initialisation du graphique
+        initChart(labels, speeds, temperatures);
     }
 
     // fonction d'initialisation de d'historiques récupérés en bdd
