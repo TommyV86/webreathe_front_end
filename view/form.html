@@ -16,14 +16,30 @@
 </head>
 <body>
     
-    <h2>ajouter un module</h2>
-    <button><a href="../index.html">retour à l'index</a></button>
+    <div class="block-form">
+    
+        <div  id="form-container">
 
-    <form id="add-module-form">
-        <input type="text" name="name" placeholder="Nom du module" required>
-        <input type="text" name="description" placeholder="Description du module" required>
-        <button type="submit">Ajouter le module</button>
-    </form>
+            <h2>Ajouter un module</h2>
+
+            <a class="btn btn-primary" role="button" href="../index.html">retour à l'index</a>
+
+            <form id="add-module-form">
+                    
+                <div class="col-auto">
+                    <input type="text" name="name" placeholder="Nom du module" required>
+                </div>
+
+                <div class="col-auto">
+                    <input type="text" name="description" placeholder="Description du module" required>
+                </div>
+
+                <input class="btn btn-primary" type="submit" value="ajouter le module">
+            </form>
+
+        </div>
+
+    </div>
 
 </body>
 </html>

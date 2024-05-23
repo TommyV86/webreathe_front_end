@@ -18,47 +18,50 @@
 
 <body>
 
+    <div class="container">
+        <h1>Webreathe project</h1>
+
+        <a class="btn btn-primary" role="button" href="view/form.html">ajouter un module</a>
+
+        <!-- afficher les modules et l'historique-->
+        <h2 id="modules">Modules</h2>
+        <table id="modules-table" class="table table-active">
+            <thead>
+                <tr>
+                    <th scope="col">n° du module</th>
+                    <th scope="col">date de création</th>
+                    <th scope="col">nom du module</th>
+                    <th scope="col">description</th> 
+                    <th scope="col">vitesse</th>
+                    <th scope="col">température</th>
+                    <th scope="col">afficher tout l'historique</th>
+                    <th scope="col">état</th>
+                </tr>
+            </thead>
+
+            <tbody class="table-group-divider"></tbody>
+            
+            <canvas id="myChart"></canvas>  
+        </table>
     
-    <h1>Webreathe project</h1>
-
-    <button><a href="view/form.html">ajouter un module</a></button>
-
-    <!-- afficher les modules et l'historique-->
-    <h2>Modules</h2>
-    <table id="modules-table" class="table">
-        <thead>
-            <tr>
-                <th scope="col">n° du module</th>
-                <th scope="col">date de création</th>
-                <th scope="col">nom du module</th>
-                <th scope="col">description</th> 
-                <th scope="col">vitesse</th>
-                <th scope="col">température</th>
-                <th scope="col">afficher tout l'historique</th>
-                <th scope="col">état</th>
-            </tr>
-        </thead>
-
-        <tbody></tbody>
-        <canvas id="myChart"></canvas>
-    </table>
 
 
-    <!-- afficher les historiques-->
-    <h2>Historique des 5 dernières pannes</h2>
-    <table id="histories-table" class="table">
-        <thead>
-            <tr>
-                <th scope="col">n° de l'historique</th>
-                <th scope="col">date de la panne</th>
-                <th scope="col">module</th>
-                <th scope="col">vitesse</th>
-                <th scope="col">température</th>
-            </tr>
-        </thead>
+        <!-- afficher les historiques-->
+        <h2 id="history">Historique des 5 dernières pannes</h2>
+        <table id="histories-table" class="table table-active">
+            <thead>
+                <tr>
+                    <th scope="col">n° de l'historique</th>
+                    <th scope="col">date de la panne</th>
+                    <th scope="col">module</th>
+                    <th scope="col">vitesse</th>
+                    <th scope="col">température</th>
+                </tr>
+            </thead>
 
-        <tbody></tbody>
-    </table>
+            <tbody class="table-group-divider"></tbody>
+        </table>
+    </div>
     
 </body>
 </html>

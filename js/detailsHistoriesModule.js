@@ -20,23 +20,18 @@ $(document).ready(()=>{
 
     // fonction d'initialisation d'historiques de module récupérés en bdd
     function initHistoriesModuleTable(historiesModule) {
-        console.log('hist mod : ',historiesModule);
-        let title;
-
+        let title = $("<h2>").attr('class', 'title-module');
+        let displayCount = $("<h3>").attr('class', 'display-count');
+        let count = 0;
+        
         if (historiesModule.length == 0) {
-            title = $("<h2>");
             title.text('Ce module ne contient aucune panne actuellement');
             $('body').prepend(title);
         }
 
         $('#histories-module-table tbody').empty();
-        let count = 0;
-        let displayCount;
         historiesModule.forEach(history => {
             count += 1;
-            displayCount = $("<h3>");
-            title = $("<h2>");
-
             let row = $("<tr>");
             title.text("Historique du module : " + history.module.name);
             row.append($('<td>').text(formatDate(history.date)));
@@ -44,10 +39,10 @@ $(document).ready(()=>{
             row.append($('<td>').text(history.temperatureModule + ' °C'));
             $('#histories-module-table tbody').append(row);
         });    
-        displayCount.append("nombre de panne : " + count);     
+
+        displayCount.text("nombre de panne : " + count);     
         $('body').prepend(displayCount)
-                 .prepend(title);
-        
+                 .prepend(title);       
     }
 
 

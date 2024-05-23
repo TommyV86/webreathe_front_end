@@ -1,3 +1,4 @@
+/*  index */
 a {
     text-decoration: none !important;
 }
@@ -12,4 +13,51 @@ a {
 
 .off {
     color: rgb(255, 0, 0) !important;
+}
+
+#modules {
+    margin-top: 1em;
+}
+
+#history {
+    margin-top: 5em !important;
+}
+
+/* formulaire */
+
+#form-container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 40em;
+}
+
+.col-auto {
+    margin: 10px 10px;
+}
+
+.block-form {
+    margin: 180px;
+    border-radius: 10px;
+    border: 1px solid rgb(175, 175, 175);
+    background-color: rgb(207, 207, 207);
+}
+
+
+/* historique */
+.title-module, .display-count {
+    margin-left: 16%;
+}
+
+@media (max-width: 1919px) {
+
+    /* formulaire */
+    #form-container {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 30em;
+    }
+    /* historique */
+    .title-module, .display-count {
+        margin-left: 7.5%;
+    }
 }

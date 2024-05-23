@@ -11,38 +11,41 @@ $(document).ready(()=>{
 
         // rafraîchissement du graphique ou initialisation si nécessaire
         if (myChart) {
-            // si le graphique existe déjà, le détruire avant d'en créer un nouveau
-            myChart.destroy();
-        }
-
-        const ctx = document.getElementById('myChart').getContext('2d');
-        myChart = new Chart(ctx, {
-            type: 'bar', // utiliser 'bar', 'line', etc. selon besoins
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Vitesse',
-                    data: speeds,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
+            // mise à jour des données du graphique existant
+            myChart.data.labels = labels;
+            myChart.data.datasets[0].data = speeds;
+            myChart.data.datasets[1].data = temperatures;
+            myChart.update();
+        } else {
+            const ctx = document.getElementById('myChart').getContext('2d');
+            myChart = new Chart(ctx, {
+                type: 'bar', // utiliser 'bar', 'line', etc. selon besoins
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Vitesse',
+                        data: speeds,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Température (°C)',
+                        data: temperatures,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
                 },
-                {
-                    label: 'Température (°C)',
-                    data: temperatures,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     }
 
     // fonction d'initialisation de modules récupérés en bdd
