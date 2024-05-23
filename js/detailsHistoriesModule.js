@@ -20,10 +20,18 @@ $(document).ready(()=>{
 
     // fonction d'initialisation d'historiques de module récupérés en bdd
     function initHistoriesModuleTable(historiesModule) {
+        console.log('hist mod : ',historiesModule);
+        let title;
+
+        if (historiesModule.length == 0) {
+            title = $("<h2>");
+            title.text('Ce module ne contient aucune panne actuellement');
+            $('body').prepend(title);
+        }
+
         $('#histories-module-table tbody').empty();
         let count = 0;
         let displayCount;
-        let title;
         historiesModule.forEach(history => {
             count += 1;
             displayCount = $("<h3>");

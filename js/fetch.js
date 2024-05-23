@@ -13,7 +13,7 @@ $(document).ready(()=>{
             let row = $("<tr>");
             let stateCell = $("<td>").text(module.state);
             // lien de redirection avec l'ID du module
-            let link = $('<a>').attr('href', '../webreathe_front_end/view/histories-module.html?moduleId=' + module.id).text('voir tout l\'historique');
+            let link = $('<a>').attr('href', '../view/histories-module.html?moduleId=' + module.id).text('voir tout l\'historique');
 
             row.append($('<td>').text(module.id));
             row.append($('<td>').text(formatDate(module.date)));

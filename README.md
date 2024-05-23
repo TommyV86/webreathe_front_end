@@ -1,6 +1,13 @@
 # webreathe_front_end
 
-partie client où il est possible de voir les modules provenant de la base de données, d'ajouter de nouveaux modules et de consulter l'historique de panne de module
+*** lancement du server front en https : http-server -S -C server.cert -K server.key ***
+
+étapes pour avoir un server en https (si besoin):
+-installer le module http server : npm install -g http-server
+-generer les certificats ssl/tls auto signés : openssl req -nodes -new -x509 -keyout server.key -out server.cert
+
+partie client où il est possible de voir les modules provenant de la base de données, d'ajouter de nouveaux modules, de consulter l'historique de panne de module
+et de voir tout l'historique d'un module en detail
 
 ------- principe de fonctionnement -------
 
